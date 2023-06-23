@@ -9,7 +9,7 @@ pip install requests
 
 
 #Apres dans python pour trouver les packages dans src
-Methode 1 
+Methode 1
 (Mettre dans les script)
 import sys
 sys.path.append('/Users/olivierdore/Documents/Lydia/Github/Test_Technique/IR')
@@ -17,3 +17,6 @@ sys.path.append('/Users/olivierdore/Documents/Lydia/Github/Test_Technique/IR')
 Methode 2: Easier
 apres avoir activé l'env virtuel
 export PYTHONPATH='/Users/olivierdore/Documents/Lydia/Github/Test_Technique/IR'
+
+Lancer streamlit
+--> streamlit run ./streamlit.py

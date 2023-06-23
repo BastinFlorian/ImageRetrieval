@@ -1,4 +1,5 @@
 import os
+import streamlit as st
 import src.utils as utils
 from src.const import IMAGE_DIR, HUGGING_FACE_MODEL_NAME, CSV_NAME
 
@@ -6,6 +7,7 @@ from src.const import IMAGE_DIR, HUGGING_FACE_MODEL_NAME, CSV_NAME
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 
+@st.cache_data
 def prepare_model():
     """DOC """
     utils.execute_download_image(IMAGE_DIR, CSV_NAME)

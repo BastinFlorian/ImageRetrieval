@@ -1,33 +1,12 @@
 import streamlit as st
 from src.predict import predict
+from src.model import prepare_model
 from src import utils
 from src.const import IMAGE_DIR, CSV_NAME, HUGGING_FACE_MODEL_NAME
-
-
-@st.cache_data
-def prepare_model():
-
-    utils.execute_download_image(IMAGE_DIR, CSV_NAME)
-
-    df = utils.load_csv(CSV_NAME)
-    utils.create_metadata(df, IMAGE_DIR)
-
-    dataset = utils.load_data(IMAGE_DIR)
-    model, processor = utils.load_model(HUGGING_FACE_MODEL_NAME)
-
-    dataset_with_embeddings = dataset.map(
-      lambda row: {'embeddings': utils.extract_embedding(row["image"], model, processor)}
-    )
-
-    dataset_with_embeddings = utils.set_index(dataset_with_embeddings)
-
-    return model, processor, dataset, dataset_with_embeddings
-
 
 def get_similar_images(model, processor, dataset, dataset_with_embeddings, url):
     id_results, retrieved_examples, input_image = predict(model, processor, dataset, dataset_with_embeddings, url)
     return id_results, retrieved_examples, input_image
-
 
 st.set_page_config(layout="wide")
 st.title("Image retrieval")

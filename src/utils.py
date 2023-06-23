@@ -50,8 +50,8 @@ def execute_download_image(dir_name: str, csv_name: str):
             download_image(url, dir_name)
         except requests.exceptions.HTTPError as err:
             logging.warning(f'{url} cannot be read: {err}')
-        except Exception:
-            logging.warning(f'Other error ofor {url}')
+        except Exception as err:
+            logging.warning(f'Other error for {url}: {err}')
 
 
 def load_csv(csvfile_name):
@@ -99,20 +99,6 @@ def get_closest_neighbors(query_image, model, processor, dataset_with_embedding,
         k=top_k
     )
     return scores, retrieved_examples
-
-
-# def remove_same_image(scores, retrieved_examples, used=False):
-#     """Remove similar images from results"""
-#     if not used:
-#         return scores, retrieved_examples
-
-#     for i, score in enumerate(scores):
-#         if score != 0:
-#             break
-
-#     if not i:
-#         retrieved_examples = {key: retrieved_examples[key][i:] for key in retrieved_examples.keys()}
-#     return scores[i:], retrieved_examples
 
 
 def score_and_retrieved_examples(model, processor, dataset, dataset_with_embeddings, query_image):

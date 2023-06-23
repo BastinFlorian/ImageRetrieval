@@ -2,7 +2,6 @@
 
 An image retrieval model that gives the IDs of the most similar images given an image
 ## How to use
-----------
 
 
 - Install pip and Docker
@@ -13,14 +12,13 @@ An image retrieval model that gives the IDs of the most similar images given an 
 - Try with the url image of your choice
 
 ## How it works
-----------
+
 
 blabla
 - FAISS
 - HUGGING FACE MODEL NAME
 
 ## Limitations and future update
-----------
 
 
 - Performance pas bonnes si beaucoup d'images
@@ -31,4 +29,4 @@ blabla
 
 
 ## Licence
-----------
+

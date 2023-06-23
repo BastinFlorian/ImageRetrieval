@@ -2,7 +2,7 @@
 from fastapi import FastAPI, HTTPException
 from src.model import prepare_model
 from src.predict import predict
-from requests.exceptions import ConnectionError, HTTPError
+from requests.exceptions import ConnectionError, HTTPError, MissingSchema
 
 
 app = FastAPI()
@@ -26,6 +26,11 @@ async def get_similar_images(url: str):
         raise HTTPException(
             status_code=404,
             detail=f"The url is not valid or the image could not be loaded. Error {err}"
+        )
+    except MissingSchema as err:
+        raise HTTPException(
+            status_code=404,
+            detail=f"The url is not valid. Error {err}"
         )
 
     return results_

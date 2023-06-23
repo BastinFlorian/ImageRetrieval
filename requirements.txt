@@ -1,9 +1,6 @@
-# Pillow (#pas besoin d'installer, déja dans les dependencies)
-# pandas #(pas besoin d'installer, déja dans les dependencies)
 datasets
 faiss-cpu
 transformers
-# requests #(pas besoin d'installer, déja dans les dependencies)
 torch
 torchvision
 fastapi
