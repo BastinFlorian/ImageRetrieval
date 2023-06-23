@@ -31,6 +31,8 @@ def download_image(url: str, dir_name: str):
 
             handle.write(block)
 
+    return file
+
 
 def execute_download_image(dir_name: str, csv_name: str):
     """summary
@@ -47,7 +49,7 @@ def execute_download_image(dir_name: str, csv_name: str):
 
     for url in urls:
         try:
-            download_image(url, dir_name)
+            _ = download_image(url, dir_name)
         except requests.exceptions.HTTPError as err:
             logging.warning(f'{url} cannot be read: {err}')
         except Exception as err:
@@ -68,8 +70,13 @@ def create_metadata(df, data_dir):
     df.to_csv(os.path.join(data_dir, 'metadata.csv'), sep=',', index=False)
 
 
-def load_data(data_dir: str):
+def load_data_from_dir(data_dir: str):
     dataset = load_dataset('imagefolder', data_dir=data_dir, split='train', drop_metadata=False)
+    return dataset
+
+
+def load_data_from_file(filename: str):
+    dataset = load_dataset('imagefolder', filename, split='train', drop_metadata=False)
     return dataset
 
 
@@ -90,19 +97,19 @@ def set_index(dataset_with_embeddings):
     return dataset_with_embeddings
 
 
-def get_closest_neighbors(query_image, model, processor, dataset_with_embedding, top_k=5):
+def get_closest_neighbors(query_image, model, processor, dataset_with_embedding, top_k=3):
     embedded_query_image = extract_embedding(query_image, model, processor)
-
     scores, retrieved_examples = dataset_with_embedding.get_nearest_examples(
         'embeddings',
         embedded_query_image,
         k=top_k
     )
+
     return scores, retrieved_examples
 
 
 def score_and_retrieved_examples(model, processor, dataset, dataset_with_embeddings, query_image):
-    scores, retrieved_examples = get_closest_neighbors(query_image, model, processor, dataset_with_embeddings, top_k=5)
+    scores, retrieved_examples = get_closest_neighbors(query_image, model, processor, dataset_with_embeddings, top_k=3)
     return scores, retrieved_examples
 
 

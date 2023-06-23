@@ -15,7 +15,7 @@ def prepare_model():
     df = utils.load_csv(CSV_NAME)
     utils.create_metadata(df, IMAGE_DIR)
 
-    dataset = utils.load_data(IMAGE_DIR)
+    dataset = utils.load_data_from_dir(IMAGE_DIR)
     model, processor = utils.load_model(HUGGING_FACE_MODEL_NAME)
 
     dataset_with_embeddings = dataset.map(

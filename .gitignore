@@ -1,11 +1,9 @@
 # ENV
 .env
 
-
 # Data Directories
 data/images
 data/query_images
-.env/*
 
 .DS_STORE
 

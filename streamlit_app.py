@@ -27,12 +27,10 @@ with st.form('Input'):
             url
         )
 
-        st.write(id_results)
-        st.image(input_image['image'], caption='The input image', width=600)
-
+        st.image(input_image, caption='The input image', width=600)
         st.image(
             retrieved_examples['image'],
-            caption=[f'Top {i} similar' for i in range(len(retrieved_examples['image']))],
+            caption=[f'Top {i+1}' for i in range(len(retrieved_examples['image']))],
             use_column_width="False",
             width=300
         )
