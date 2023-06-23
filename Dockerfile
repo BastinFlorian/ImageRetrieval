@@ -12,4 +12,5 @@ RUN pip install --no-cache-dir --upgrade -r ./requirements.txt
 # ENTRYPOINT ["streamlit", "run", "streamlit.py", "--server.port=8501", "--server.address=0.0.0.0"]
 
 # Uvicorn
-CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "80"]
+#CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["/bin/bash", "-c", "python main.py"]
