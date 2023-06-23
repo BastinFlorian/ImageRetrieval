@@ -24,7 +24,7 @@ FastAPI enables to develop a quick and serverless API in python. The documentati
 
 ## Getting Started
 
-- Install [Docker Desktop]('https://www.docker.com/*')
+- Install [Docker Desktop](https://www.docker.com/*)
 - Run `docker-compose build`
 - Run `docker-compose up`
 - Fast API app, open on a web browser: `http://localhost:8000/docs`
