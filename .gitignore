@@ -1,3 +1,7 @@
+# ENV
+.env
+
+
 # Data Directories
 IR/data/*
 IR/.env/*
