@@ -7,15 +7,15 @@ from requests.exceptions import ConnectionError, HTTPError, MissingSchema
 
 app = FastAPI()
 
-model, processor, dataset, dataset_with_embeddings = prepare_model()
+model, processor, dataset_with_embeddings = prepare_model()
 
 
 @app.post("/Images Retrieval")
 async def get_similar_images(url: str):
-    global model, processor, dataset, dataset_with_embeddings
+    global model, processor, dataset_with_embeddings
     try:
         # Try to load image and find similarities
-        results_, _, _ = predict(model, processor, dataset, dataset_with_embeddings, url)
+        results_, _, _ = predict(model, processor, dataset_with_embeddings, url)
 
     except ConnectionError as err:
         raise HTTPException(

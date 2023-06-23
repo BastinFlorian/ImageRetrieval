@@ -8,10 +8,3 @@ services:
     ports:
       - "8000:8000"
 
-  app:
-    image: image-retrieval
-    container_name: streamlit_app
-    build: .
-    command: "streamlit run --server.port 8501 --server.enableCORS false streamlit_app.py"
-    ports:
-      - "8501:8501"

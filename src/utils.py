@@ -29,8 +29,10 @@ def download_image(url: str, dir_name: str):
         for block in response.iter_content(1024):
             if not block:
                 break
+
             handle.write(block)
 
+    return file
 
 
 def execute_download_image(dir_name: str, csv_name: str):
@@ -171,13 +173,12 @@ def get_closest_neighbors(query_image, model, processor, dataset_with_embedding,
     return scores, retrieved_examples
 
 
-def score_and_retrieved_examples(model, processor, dataset, dataset_with_embeddings, query_image):
+def score_and_retrieved_examples(model, processor, dataset_with_embeddings, query_image):
     """Compute scores and retrieved images thanks to FAISS index
 
     Args:
         model (transformers.ViTModel)
         processor (transformers.ViTImageProcessor)
-        dataset (_type_): _description_
         dataset_with_embeddings (Dataset)
         query_image (Dataset)
 
