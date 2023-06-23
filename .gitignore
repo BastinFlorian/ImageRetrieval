@@ -3,8 +3,11 @@
 
 
 # Data Directories
-IR/data/*
-IR/.env/*
+data/images
+data/query_images
+.env/*
+
+.DS_STORE
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

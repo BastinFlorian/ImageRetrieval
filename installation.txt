@@ -1,0 +1,19 @@
+conda create -n datasets
+conda activate datasets
+conda install -c huggingface -c conda-forge datasets
+pip install torch
+pip install torchvision
+pip install transformers
+pip install faiss-cpu
+pip install requests
+
+
+#Apres dans python pour trouver les packages dans src
+Methode 1 
+(Mettre dans les script)
+import sys
+sys.path.append('/Users/olivierdore/Documents/Lydia/Github/Test_Technique/IR')
+
+Methode 2: Easier
+apres avoir activé l'env virtuel
+export PYTHONPATH='/Users/olivierdore/Documents/Lydia/Github/Test_Technique/IR'
