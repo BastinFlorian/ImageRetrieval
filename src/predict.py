@@ -1,6 +1,7 @@
-from src.utils import score_and_retrieved_examples, retrieved_id, download_image, load_data_from_file
+from src.utils import score_and_retrieved_examples, retrieved_id, download_image
 from src.const import QUERY_IMAGE_DIR_NAME
 from PIL import Image
+
 
 def url_to_image(url, dir_name_query_image):
     """Download image from URL
