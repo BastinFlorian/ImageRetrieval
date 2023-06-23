@@ -2,8 +2,9 @@
 .env
 
 # Data Directories
-data/images
-data/query_images
+data/images/*
+data/query_images/*
+!/data/input.csv
 
 .DS_STORE
 
