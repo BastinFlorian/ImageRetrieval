@@ -5,11 +5,11 @@ An image retrieval model that gives the IDs of the most similar images given an 
 
 
 - Install pip and Docker
-- Run `docker docker build -t image-retrieval .`
-- Run `docker run -d --name image-retrieval-container -p 80:80 image-retrieval`
-- Open on a web browser: `http://127.0.0.1:8000/docs`
-- Alternatively for the Streamlit app, open on a web browser: `http://localhost:8501/`
-- Try with the url image of your choice
+- Run `docker-compose build`
+- Run `docker-compose up`
+- Fast API app, open on a web browser: `http://localhost:8000/docs`
+- Streamlit app, open on a web browser: `http://localhost:8501/`
+- Try the apps with the url image of your choice
 
 ## How it works
 
