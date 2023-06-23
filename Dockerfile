@@ -7,4 +7,3 @@ COPY . .
 RUN pip install --no-cache-dir --upgrade -r ./requirements.txt
 
 EXPOSE 8000:8000
-EXPOSE 8501:8501
